@@ -1,4 +1,4 @@
-# Meta-analysis of studies with complex knowledge and unexplained heterogeneity
+# A package for meta-analysis of studies with complex knowledge and unexplained heterogeneity
 Copyright (C) 2025 Martin Adamčík, e-mail: maths38@gmail.com  
 The source code requires Python 3.12 or above, with Numpy and Scipy packages, and is OS independent.
 This program comes with ABSOLUTELY NO WARRANTY; for details see the license.
@@ -173,9 +173,13 @@ In meta-analysis, the result can be only as good as the input was. The results c
 
 ## X. RUNNING THE PROGRAM
 
-1. Edit input.txt
-2. Run meta_analysis_for_windows11_64bit.exe in Windows 11 (64-bit) or above, or meta_analysis_source_code.py in your Python (3.12 or above) interpreter, with Numpy and Scipy packages
-3. Wait until the window closes, or the program finishes
-4. Check output.txt
+1. Edit input.txt, and move to its directory
+2. Type meta-analysis in the terminal, or run the following Python program
+``` Python
+from meta_analysis import main
+main()
+``` 
+3. Wait until the program finishes
+4. Check output.txt, in the same directory as input.txt
 
 
