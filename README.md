@@ -1,13 +1,13 @@
 # A package for meta-analysis of studies with complex knowledge and unexplained heterogeneity
 Copyright (C) 2025 Martin Adamčík, e-mail: maths38@gmail.com  
-The source code requires Python 3.12 or above, with Numpy and Scipy packages, and is OS independent.
+The package requires Python 3.12 or above, with Numpy and Scipy packages, and is OS independent.
 This program comes with ABSOLUTELY NO WARRANTY; for details see the license.
 This is free software, and you are welcome to redistribute it under certain conditions; see the GNU General Public License.  
 
 
 ## I. INTRODUCTION
 
-I would like to share with you a tool to combine different studies - to perform their meta-analysis. https://github.com/maths38/meta-analysis  
+I would like to share with you a tool to combine different studies - to perform their meta-analysis. https://github.com/maths38/meta-analysis_package
 
 In meta-analysis, instead of looking at an individual study, we base our conclusion on several studies thus making it stronger. However, traditional meta-analysis is limited to combining studies that use identical variables. My Python program addresses this limitation by taking into account related information spread across multiple studies weighted by their respective sample sizes.  
 
