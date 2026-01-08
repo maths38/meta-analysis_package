@@ -1,0 +1,261 @@
+# Comments are allowed, everything after # is ignored.
+# First list below your propositional variables, and only variables. Variables can use letters and underscores [A-Za-z_]. 
+# Variables must not contain numbers and symbols such as | and /. They are not case-sensitive when used in constraints.
+# STUDY must not be used as a variable even as a part of their name such as STUDYING. 
+# The following keywords must not be used as variables: SAMPLE, SIZE, MAXITER, STOPPING, GTOL, OR, NOT, NEG, BIAS, but they could be part of their names such as NOTE.
+
+# You can separate variables by commas, empty spaces on put the on new lines as seen below
+
+# This example is from Adamcik, M. A logician’s approach to meta-analysis with unexplained heterogeneity, Journal of Biomedical Informatics 71 (2017), 110–129
+CA  # Cancer manifested within 12 months. 
+REC # Cancer detected during routine evaluation when unprovoked VTE was diagnosed.
+ESC # Cancer detected during extensive screening when unprovoked VTE was diagnosed.
+RES # Routine evaluation yielded suspicious results in respect to cancer when unprovoked VTE was diagnosed.
+ESS # Extensive screening yielded suspicious results in respect to cancer when unprovoked VTE was diagnosed.
+
+Study0       # STUDY (not case-sensitive) is a keyword that denotes that new study constraints and sample size will follow. 
+
+size = 342   # For each study you must define one sample size. SAMPLE, SIZE and SAMPLE SIZE all can be used as a keyword. 
+
+stopping 1e-6 # It will take a while to compute the result using the default precision (1e-6). Change it here for quick testing (not above 1e-4), or to achieve a higher precision.
+
+# Now list all constraints for your study on separate lines. They must be consistent. Therefore, make sure to split experimental studies into two: 
+# one for the intervention sample and one for the control sample. Additionally, constraints may not force an atomic sentence to be zero.
+# There are three types of constraints: (1) The probability of a conjunction of literals equals a number, 
+# (2) the probability of a disjunctive normal form equals a number, and (3) the probability of a conditional equals a number.
+# The probability must be a positive number between 0 and 1. The number has a dot for decimals, but must not have any commas or spaces included.
+# Only the first number included on the line is taken as the probability. The number cannot use the scientific notation; use the decimal form. 
+# However, you may want to give probability as a fraction to avoid inconsistencies. If some study subject leave, this must be ignored to avoid inconsistencies. 
+# Use / with any or no spaces between it and two numbers to indicate a fraction. For example, 1/5, 1 / 5 and 1 / 10,000 are all acceptable.
+
+
+REC, ~RES = 8/100000   # This stands for probability 0, as precise zeros are not allowed in this method. 8 / 100,000 is also acceptable.
+
+ESC, ~ESS = 8/100,000  # For logical AND any symbols, or even no symbols, can be used, except the keywords.
+
+~CA, REC = 8/100000    # Use NOT, NEG, ~, ! for negation.
+
+~CA, ESC = 8/100000    # When we use NOT or NEG for negation, we need to add a space unlike with ~ and !.
+
+CA, ~REC, ESC, ESS | CA, ~REC = 6/18   # A conditional type of constraint is recognised by keysymbol |. A disjunction cannot appear in conditional constraints.
+
+CA, ~REC, ESC, ESS | ~REC, ESS = 6 / 91  # Parentheses are unnecessary and ignored: In order of priority: NOT, AND, OR, CONDITIONAL
+
+CA, REC, RES | CA = 12 / 30			
+
+CA, REC, RES | RES  = 12/57		   
+
+CA = 30/342	 # This means that 30 patients out of 342 were diagnosed cancer in this study.
+
+# RES = 57/342	 # Redundant - please remove redundant constraints	   
+
+
+Study1       # You can add a letter or a number or a word to your keyword, but never use variables, to help you identify it. 
+
+sample = 288 # You can add commas to sample size to denote thousands or not. For example, both SAMPLE = 1,250 and SAMPLE = 1250 are fine. 
+
+
+REC, ~RES = 8/100000 
+
+ESC, ~ESS = 8/100000 
+
+~CA, REC = 8/100000
+
+~CA, ESC = 8/100000 
+
+CA, REC, RES | CA = 7/21
+
+CA, REC, RES | RES = 7/62
+
+CA = 21/288
+
+# RES = 62/288   # Redundant - it was removed using #
+
+
+STUDY2 
+
+sample size = 99    
+
+
+REC, ~RES = 8/100000 
+
+ESC, ~ESS = 8/100000 
+
+~CA, REC = 8/100000
+
+~CA, ESC = 8/100000 
+
+CA, ~REC | ~REC = 14/99
+
+CA, ~REC, ESC | ~REC = 13/99
+
+
+Study3
+
+sample = 102
+
+REC, ~RES = 8/100000 
+
+ESC, ~ESS = 8/100000 
+
+~CA, REC = 8/100000
+
+~CA, ESC = 8/100000 
+
+CA, ~REC | ~REC = 10 / 102
+
+
+Study4
+
+sample = 345
+
+REC, ~RES = 8/100000 
+
+ESC, ~ESS = 8/100000 
+
+~CA, REC = 8/100000
+
+~CA, ESC = 8/100000 
+
+RES = 92 / 345 
+
+CA, REC, RES | RES = 25/92
+
+CA = 43/345
+
+CA, ~REC, ESC | ~REC = 9/320
+
+
+Study5
+
+sample = 423
+
+REC, ~RES = 8/100000 
+
+ESC, ~ESS = 8/100000 
+
+~CA, REC = 8/100000
+
+~CA, ESC = 8/100000 
+
+REC OR ESC = 14/390   # For a disjunctive normal form, use OR (not case-sensitive) to separate any number of conjunctions of literals. 
+
+CA = 19/423
+
+
+Study6
+
+sample = 431
+
+REC, ~RES = 8/100000 
+
+ESC, ~ESS = 8/100000 
+
+~CA, REC = 8/100000
+
+~CA, ESC = 8/100000 
+
+CA, REC, RES | CA = 10/14
+
+CA = 14/431
+
+
+Study7
+
+sample = 197
+
+REC, ~RES = 8/100000 
+
+ESC, ~ESS = 8/100000 
+
+~CA, REC = 8/100000
+
+~CA, ESC = 8/100000 
+
+CA, ~REC, ~ESC | ~REC, ~ESC = 1/186
+
+REC OR ESC = 11/197
+
+
+Study8
+
+sample = 197
+
+REC, ~RES = 8/100000 
+
+ESC, ~ESS = 8/100000 
+
+~CA, REC = 8/100000
+
+~CA, ESC = 8/100000 
+
+CA, ~REC | ~REC = 9/193
+
+REC = 4/197
+
+
+Study9
+
+sample = 50
+
+REC, ~RES = 8/100000 
+
+ESC, ~ESS = 8/100000 
+
+~CA, REC = 8/100000
+
+~CA, ESC = 8/100000 
+
+REC OR ESC = 1/50
+
+CA = 4/50
+
+
+Study10
+
+sample = 40
+
+
+REC, ~RES = 8/100000 
+
+ESC, ~ESS = 8/100000 
+
+~CA, REC = 8/100000
+
+~CA, ESC = 8/100000 
+
+RES = 16/40
+
+RES, ESS | RES = 13/16
+
+# CA, ~ESC = 8/100000    # Redundant - it was removed using #
+
+CA, REC = 8/100000
+
+ESS = 25/40
+
+ESC = 1/40
+
+CA = 1/40
+
+
+Study11
+
+sample = 50
+
+
+REC, ~RES = 8/100000 
+
+ESC, ~ESS = 8/100000 
+
+~CA, REC = 8/100000
+
+~CA, ESC = 8/100000 
+
+ESS = 22/50
+
+CA, ESC, ESS | ESS = 12/22
+
+ 
+
+# Check if your input was interpreted correctly in the output file.
