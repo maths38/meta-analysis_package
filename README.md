@@ -177,7 +177,7 @@ In meta-analysis, the result can be only as good as the input was. The results c
     ```bash
     pip install meta-analysis
     ```
-2. Edit `input.txt`. 
+2. Edit `input.txt` with the desired study data and parameters. 
 3. Open a terminal in the directory containing `input.txt`.
 4. Run:
    ```bash
@@ -186,8 +186,8 @@ In meta-analysis, the result can be only as good as the input was. The results c
 5. Wait until the program finishes.
 6. Check `output.txt` in the same directory as `input.txt`.
 
-Alternatively, run the following Python program in the directory containing `input.txt`, as the program reads and writes files using relative paths.
-``` Python
+Alternatively, you may run the following Python code from the directory containing `input.txt`, as the program reads and writes files using relative paths.
+``` python
 from meta_analysis import main
 main()
 ``` 
