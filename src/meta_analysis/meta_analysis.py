@@ -531,7 +531,7 @@ def main():
 
     maxiter_flag = False  # to check if maxiter was exceeded when computing projections
     def projection(constraints):
-        global maxiter_flag
+        nonlocal maxiter_flag
         # x0 = uniform.copy()  # the starting point is uniform
         x0 = para.copy()  # starting point is current para
         bounds = [(1e-8, 1)] * len(para)  # the lower bound is 1e-8, the upper bound is 1
