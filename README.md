@@ -173,13 +173,21 @@ In meta-analysis, the result can be only as good as the input was. The results c
 
 ## X. RUNNING THE PROGRAM
 
-1. Edit input.txt, and move to its directory
-2. Type meta-analysis in the terminal, or run the following Python program
+1. Install the package using pip:
+    ```bash
+    pip install meta-analysis
+    ```
+2. Edit `input.txt`. 
+3. Open a terminal in the directory containing `input.txt`.
+4. Run:
+   ```bash
+   meta-analysis
+   ``` 
+5. Wait until the program finishes.
+6. Check `output.txt` in the same directory as `input.txt`.
+
+Alternatively, run the following Python program in the directory containing `input.txt`, as the program reads and writes files using relative paths.
 ``` Python
 from meta_analysis import main
 main()
 ``` 
-3. Wait until the program finishes
-4. Check output.txt, in the same directory as input.txt
-
-
