@@ -1,6 +1,6 @@
 # A package for meta-analysis of studies with complex knowledge and unexplained heterogeneity.
 # Copyright (C) 2025 Martin Adamčík, e-mail: maths38@gmail.com
-# The source code requires Python 3.12 or above, with Numpy and Scipy packages, and is OS independent.
+# The package requires Python 3.12 or above, with Numpy and Scipy packages, and is OS independent.
 # This program comes with ABSOLUTELY NO WARRANTY; for details see the licence.
 # This is free software, and you are welcome to redistribute it under certain conditions;
 # see the GNU General Public License.
@@ -42,9 +42,9 @@ def main():
     # Reading the Input File For Setting Up Variables, Number of Studies, Sample Sizes and Constants
     with open(output_file, "w") as file:  # first we set up an output file
         print(
-            'Meta-analysis of studies with complex knowledge and unexplained heterogeneity.\nCopyright (C) 2025 Martin Adamčík, e-mail: maths38@gmail.com\nThe source code requires Python 3.12 or above, with Numpy and Scipy packages, and is OS independent.\nThis program comes with ABSOLUTELY NO WARRANTY; for details see the license.\nThis is free software, and you are welcome to redistribute it under certain conditions; see the GNU General Public License.')
+            'Meta-analysis of studies with complex knowledge and unexplained heterogeneity.\nCopyright (C) 2025 Martin Adamčík, e-mail: maths38@gmail.com\nThe package requires Python 3.12 or above, with Numpy and Scipy packages, and is OS independent.\nThis program comes with ABSOLUTELY NO WARRANTY; for details see the license.\nThis is free software, and you are welcome to redistribute it under certain conditions; see the GNU General Public License.')
         file.write(
-            'Meta-analysis of studies with complex knowledge and unexplained heterogeneity.\nCopyright (C) 2025 Martin Adamcik, e-mail: maths38@gmail.com\nThe source code requires Python 3.12 or above, with Numpy and Scipy packages, and is OS independent.\nThis program comes with ABSOLUTELY NO WARRANTY; for details see the license.\nThis is free software, and you are welcome to redistribute it under certain conditions; see the GNU General Public License.\n\n')
+            'Meta-analysis of studies with complex knowledge and unexplained heterogeneity.\nCopyright (C) 2025 Martin Adamcik, e-mail: maths38@gmail.com\nThe package requires Python 3.12 or above, with Numpy and Scipy packages, and is OS independent.\nThis program comes with ABSOLUTELY NO WARRANTY; for details see the license.\nThis is free software, and you are welcome to redistribute it under certain conditions; see the GNU General Public License.\n\n')
         file.write('CHECK INPUT:\n')
     with open(log_file, "w") as file:  # second we set up a log file
         file.write(
