@@ -27,10 +27,13 @@ classifiers = [
 ]
 
 
-
 [project.scripts]
 meta-analysis = "meta_analysis.meta_analysis:main"
 
 
 [project.urls]
 Homepage = "https://github.com/maths38/meta-analysis_package"
+
+
+[tool.setuptools.packages.find]
+where = ["."]
