@@ -177,16 +177,16 @@ In meta-analysis, the result can be only as good as the input was. The results c
     ```bash
     pip install meta-analysis
     ```
-2. Open a terminal in your working directory. Generate a sample toy example `input.txt` in this directory:
+2. Open a terminal in your working directory (the directory where input and output files will be read and written).
+3. Generate a sample toy example `input.txt` in this directory:
    ```bash
    meta-analysis-init
    ``` 
-   or the real example `input.txt`, (overwriting any existing one):
+   or the real example `input.txt`:
    ```bash
    meta-analysis-real
    ``` 
-3. Edit `input.txt` with the desired study data and parameters. 
-4. Open a terminal in the directory containing `input.txt`.
+4. Edit `input.txt` with the desired study data and parameters.
 5. Run:
    ```bash
    meta-analysis
