@@ -29,6 +29,8 @@ classifiers = [
 
 [project.scripts]
 meta-analysis = "meta_analysis.meta_analysis:main"
+meta-analysis-init = "meta_analysis.meta_analysis:copy_sample_input"
+meta-analysis-real = "meta_analysis.meta_analysis:copy_real_input"
 
 
 [project.urls]
@@ -37,3 +39,6 @@ Homepage = "https://github.com/maths38/meta-analysis_package"
 
 [tool.setuptools.packages.find]
 where = ["."]
+
+[tool.setuptools.package-data]
+meta_analysis = ["example/*.txt"]
