@@ -8,7 +8,7 @@ version = "1.2"
 description = "A package for meta-analysis of studies with complex knowledge and unexplained heterogeneity"
 readme = "README.md"
 requires-python = ">=3.12"
-
+keywords = ["meta-analysis", "complex knowledge", "heterogeneity"]
 authors = [
     { name = "Martin Adamcik", email = "maths38@gmail.com" }
 ]
@@ -35,10 +35,10 @@ meta-analysis-real = "meta_analysis.meta_analysis:copy_real_input"
 
 [project.urls]
 Homepage = "https://github.com/maths38/meta-analysis_package"
-
+Source = "https://github.com/maths38/meta-analysis_package"
 
 [tool.setuptools.packages.find]
-where = ["."]
+where = ["src"]
 
 [tool.setuptools.package-data]
 meta_analysis = ["example/*.txt"]
