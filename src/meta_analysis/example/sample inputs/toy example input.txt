@@ -1,0 +1,46 @@
+# Comments are allowed, everything after # is ignored.
+# First list below your propositional variables, and only variables. Variables can use letters and underscores [A-Za-z_]. 
+# Variables must not contain numbers and symbols such as | and /. They are not case-sensitive when used in constraints.
+# STUDY must not be used as a variable even as a part of their name such as STUDYING. 
+# The following keywords must not be used as variables: SAMPLE, SIZE, MAXITER, STOPPING, GTOL, OR, NOT, NEG, BIAS, but they could be part of their names such as NOTE.
+
+Cancer, Test # You can separate variables by commas, empty spaces or even put them on separate lines.  
+
+
+StudyA       # STUDY (not case-sensitive) is a keyword that denotes that new study constraints and sample size will follow. 
+
+size = 70    # For each study you must define one sample size. SAMPLE, SIZE and SAMPLE SIZE all can be used as a keyword. 
+
+gtol = 1e-13  # We can decrease gtol parameter down to 1e-13 (default 1e-12) if we want to increase the maximal achievable level of precision. 
+stopping = 1e-7  # We can override stopping parameter (default 1e-6, not above 1e-4) anywhere after STUDY appeared to increase or decrease precision.
+
+# Now list all constraints for your study on separate lines. They must be consistent. Therefore, make sure to split experimental studies into two: 
+# one for the intervention sample and one for the control sample. Additionally, constraints may not force an atomic sentence to be zero.
+# There are three types of constraints: (1) The probability of a conjunction of literals equals a number, 
+# (2) the probability of a disjunctive normal form equals a number, and (3) the probability of a conditional equals a number.
+# The probability must be a positive number between 0 and 1. The number has a dot for decimals, but must not have any commas or spaces included.
+# Only the first number included on the line is taken as the probability. The number cannot use the scientific notation, use the decimal form. 
+# However, you may want to give probability as a fraction to avoid inconsistencies. If some study subject leave, this must be ignored to avoid inconsistencies. 
+# Use / with any or no spaces between it and two numbers to indicate a fraction. For example, 1/5, 1 / 5 and 1 / 10,000 are all acceptable.
+
+P(CANCER) =  7/70   # This is a simple constraints that indicates that 7 out of 100 patients were diagnosed with cancer in this study.        
+
+
+StudyB        # You can add a letter or a number or a word to your keyword, but never use variables, to help you identify it. 
+
+sample = 100  # You can add commas to sample size to denote thousands or not. For example, both SAMPLE = 1,250 and SAMPLE = 1250 are fine. 
+
+
+P(TEST)   = 50/100   # Instead of a fraction we could write P(TEST) = 0.5, or even TEST 0.5 as other symbols than variables, numbers and operators are ignored. 
+P(CANCER | TEST) = 20/50   # This is a conditional type of constraint recognised by key-symbol |. A disjunction cannot appear in conditional constraints.    
+
+# Do not add P( CANCER & TEST ) = 0.2, which is redundant. It would lead to an incorrectly computed solution, the program is set to terminate for redundancy.
+
+# For logical AND any symbols, or even no symbols, can be used, except the keywords.
+# Use NOT, NEG, ~, ! for negation.
+# When we use NOT or NEG for negation, we need to add a space unlike with ~ and !.
+# Parentheses are unnecessary and ignored: In order of priority: NOT, AND, OR, CONDITIONAL
+# For a disjunctive normal form, use OR (not case-sensitive) to separate any number of conjunctions of literals. 
+
+
+# Check if your input was interpreted correctly in the output file.
