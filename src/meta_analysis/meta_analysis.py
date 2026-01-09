@@ -12,6 +12,22 @@ import sys
 import re
 import itertools
 
+from importlib.resources import files, as_file
+import shutil
+from pathlib import Path
+
+def copy_sample_input(destination="."):
+    src = files("meta_analysis").joinpath("example/input.txt")
+    dst = Path(destination) / "input.txt"
+    with as_file(src) as src_path:
+        shutil.copy(src_path, dst)
+
+def copy_real_input(destination="."):
+    src = files("meta_analysis").joinpath("example/real.txt")
+    dst = Path(destination) / "input.txt"
+    with as_file(src) as src_path:
+        shutil.copy(src_path, dst)
+
 def main():
     # SETUP - READ AND POSSIBLY CHANGE
     # In any case the procedure converges to a distribution that minimises the weighted sum of
