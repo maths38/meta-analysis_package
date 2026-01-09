@@ -177,9 +177,13 @@ In meta-analysis, the result can be only as good as the input was. The results c
     ```bash
     pip install meta-analysis
     ```
-2. Open a terminal in your working directory. Generate a sample `input.txt` in this directory:
+2. Open a terminal in your working directory. Generate a sample toy example `input.txt` in this directory:
    ```bash
    meta-analysis-init
+   ``` 
+   or the real example `input.txt`, (overwriting any existing one):
+   ```bash
+   meta-analysis-real
    ``` 
 3. Edit `input.txt` with the desired study data and parameters. 
 4. Open a terminal in the directory containing `input.txt`.
@@ -190,7 +194,7 @@ In meta-analysis, the result can be only as good as the input was. The results c
 6. Wait until the program finishes.
 7. Check `output.txt` in the same directory as `input.txt`.
 
-Alternatively, you may download `input.txt` from https://github.com/maths38/meta-analysis_package, see the example.
+Alternatively, you may download `input.txt`, and toy and real example text files, from https://github.com/maths38/meta-analysis_package, see the example.
 
 Alternatively, you may run the following Python code from the directory containing `input.txt`.
 ``` python
