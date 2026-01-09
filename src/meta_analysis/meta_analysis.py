@@ -19,12 +19,16 @@ from pathlib import Path
 def copy_sample_input(destination="."):
     src = files("meta_analysis").joinpath("example/input.txt")
     dst = Path(destination) / "input.txt"
+    if dst.exists():
+        raise FileExistsError(f"{dst} already exists.")
     with as_file(src) as src_path:
         shutil.copy(src_path, dst)
 
 def copy_real_input(destination="."):
     src = files("meta_analysis").joinpath("example/real.txt")
     dst = Path(destination) / "input.txt"
+    if dst.exists():
+        raise FileExistsError(f"{dst} already exists.")
     with as_file(src) as src_path:
         shutil.copy(src_path, dst)
 
