@@ -608,7 +608,7 @@ def main():
             distance = distance + function(pool[j]) * weights[j]
         print(f'Iteration {i}:', para, 'Divergence:', distance, 'Difference:', previous_distance - distance)
         with open(log_file, "a") as file:
-            file.write('\nIteration ' + str(i) + ': [' + ', '.join(f"{x:.5f}" for x in para) + '] Divergence: ' + str(
+            file.write('\nIteration ' + str(i) + ': [' + ', '.join(f"{x:.7f}" for x in para) + '] Divergence: ' + str(
                 distance) + ' Difference: ' + str(previous_distance - distance) + ' < ' + str(stopping) + ' = stopping')
         if (
                 previous_distance - distance) < 0:  # we can get increasing distance if we have reached the programmed projection accuracy level
@@ -639,7 +639,7 @@ def main():
               stopping, '= stopping')
         with open(log_file, "a") as file:
             file.write(
-                '\nIteration ' + str(counter) + ': [' + ', '.join(f"{x:.5f}" for x in para) + '] Divergence: ' + str(
+                '\nIteration ' + str(counter) + ': [' + ', '.join(f"{x:.7f}" for x in para) + '] Divergence: ' + str(
                     distance) + ' Difference: ' + str(previous_distance - distance) + ' < ' + str(
                     stopping) + ' = stopping')
         counter = counter + 1
@@ -682,7 +682,7 @@ def main():
 
     with open(output_file, "a") as file:
         file.write('The resulting distribution after ' + str(counter) + ' iterations is [' + ', '.join(
-            f"{x:.4f}" for x in para) + ']\n')
+            f"{x:.7f}" for x in para) + ']\n')
         file.write(
             'The sum of weighted KL-divergences of this distribution to sets of probability functions given by individual studies is: ' + str(
                 distance) + '\n')
@@ -723,7 +723,7 @@ def main():
 
     with open(log_file, "a") as file:
         file.write('\nIndividual non-weighted KL-divergences from the resulting distribution [' + ', '.join(
-            f"{x:.4f}" for x in para) + '] to studies are respectively ' + ', '.join(
+            f"{x:.7f}" for x in para) + '] to studies are respectively ' + ', '.join(
             values) + ', where smaller values indicate smaller divergences. This could be used to judge the degree to which the individual studies disagree with the resulting distribution, and as a basis of reliability analysis.\n\n')
 
     with open(output_file, "a") as file:
@@ -740,7 +740,7 @@ def main():
                         ("NOT " if i in N else "") + variable[i] for i in combo
                     )
                     probability = np.sum(conjunction(Y, N) * para)
-                    file.write(f"\nP( {labels} ) = {probability:.4f}")
+                    file.write(f"\nP( {labels} ) = {probability:.7f}")
 
     with open(output_file, "a") as file:
         file.write(
